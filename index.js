@@ -19,7 +19,7 @@ client.on('ready', () =>{
 client.on('message', message => {
     if (!message.content.startsWith(prefix) || message.author.bot) return;
     if(message.content == "$t help"){
-        message.channel.send("USED $t help\n```\ncommand list:\ngay - check how much gay you are (my developer is LGBT)\n\nsexy - check how much sexy you are \n\ndefine my message - defindes the message you just sent\n\nnitro - sends a fake nitro link straight to a brand new rickroll link *evil laughing```")
+        message.channel.send("USED $t help\n```\ncommand list:\ngay - check how much gay you are (my developer is LGBT)\n\nsexy - check how much sexy you are \n\ndefine my message - defindes the message you just sent\n\nnitro - sends a fake nitro link straight to a brand new rickroll link *evil laughing\n\nsize felan - size felane shoma ro mige```")
     }
     if(message.content == "$t test"){
         message.channel.send("the test work's!");
@@ -32,13 +32,11 @@ client.on('message', message => {
         if(rndInt > 50){gay = "hastid"}if(rndInt < 50){gay = "nistid"}
         message.channel.send("<@"+message.author+">, shoma "+rndInt+"% gay hastid! :) \n va in yaani shoma gay "+gay+".");
     }
-    if(message.content == "$t sexy" && !message.author == '745157949122543686'){
-        const rndInt = Math.floor(Math.random() * 100) + 1;
+    if(message.content == "$t sexy"){
+        const rndInt = Math.floor(Math.random() * 100) + 1
         var sexy = "hastid"
         if(rndInt > 50){sexy = "hastid"}if(rndInt < 50){sexy = "nistid :( sorry"}
-        message.channel.send("<@"+message.author+">, shoma "+rndInt+"% sexy hastid.\nke yaani shoma sexy "+sexy+".");
-    }else if(message.content == "$t sexy" && message.author == '745157949122543686'){
-        message.channel.send("<@745157949122543686>, shoma 100% sexy hastid.\nke yaani shoma sexy hastid.");
+        message.channel.send("<@"+message.author+">, shoma "+rndInt+"% sexy hastid.\nke yaani shoma sexy "+sexy+".")
     }
     if(message.content == "$t define my message"){
         var defineme = "author = <@"+message.author+">   author id:  "+message.author+"    time sent: "+message.createdAt+"  channel id: "+message.channelId
@@ -52,6 +50,10 @@ client.on('message', message => {
         };
         message.channel.send({ embeds: [exampleEmbed] });
         
+    }
+    if(message.content == "$t size felan"){
+        const rndInt = Math.floor(Math.random() * 85) + 1
+        message.channel.send('<@'+message.author+'> agar pesar hastid, Size felane shoma '+rndInt+'CM ast.\nva agar dokhtar hastid size jiji haye shoma '+rndInt+' ast.')
     }
 
     });
