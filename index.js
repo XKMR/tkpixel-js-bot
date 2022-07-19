@@ -123,6 +123,17 @@ client.on('messageCreate', message => {
         if(rndInt > 50){gay = "are"}if(rndInt < 50){gay = "are not"}
         message.channel.send("<@"+message.author+">, you are "+rndInt+"% gay! :) \n and that means you "+gay+" gay.");
         }
+    }else if (message.content.startsWith("$t gay ")){
+        var trg = message.content.replace("$t gay ", "").replace("<@", "").replace(">", "");
+        function isNumeric(value) {
+            return /^-?\d+$/.test(value);
+        }
+        if (isNumeric(trg)){
+            const rndInt = Math.floor(Math.random() * 100) + 1
+            var gay = "are";
+            if(rndInt > 50){gay = "are"}if(rndInt < 50){gay = "are not"}
+            message.channel.send("<@"+trg+">, is "+rndInt+"% gay! :) \n and that means they "+gay+" gay.");
+        }else message.channel.send(trg+" is not a user")
     }
     else if(message.content == "$t sexy"){
         if(message.author == 795587326491230238){
