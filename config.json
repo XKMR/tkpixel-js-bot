@@ -1,4 +1,9 @@
 {
     "botToken":"TOKEN HIDED FOR SECURITY REASONS",
-    "prefix":"$t"
+    "onlinelogchannel":"939872573217452033",
+    "spamchannel":"871673942891429888",
+    "quotechannel":"998648611783057479",
+    "allmessageslog":"939872137068576768",
+    "commandslogchannel":"939872324482633758",
+    "otherlogs":"940142122005315634"
 }
