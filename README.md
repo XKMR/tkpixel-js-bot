@@ -5,4 +5,4 @@ this bot has many functions, look them up using the '$t help' command.<br/>
 I'm the developer of this bot, "darkHares#0001" on discord.<br/>
 it's a quite simple bot.<br/>
 this bot is designed for single server use only.<br/>
-in order to use it you <b>need</b> to edit the code a little bit.
+in order to use it you <b>need</b> to edit "config.json" and even the code a little bit.
