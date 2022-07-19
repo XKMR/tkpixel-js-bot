@@ -91,9 +91,6 @@ client.on('messageCreate', message => {
     }
     else if(message.content.startsWith("$t limit <@") || message.content.startsWith("$t limit <!@")){ //limit command
         if(!message.member.permissionsIn(message.channel).has("ADMINISTRATOR"))return message.channel.send("YOU DO NOT HAVE PERM!");
-        if(message.guild.id != 774881534795579433){
-            return message.channel.send("this function is only supported in TKPIXEL's discord server! `designed by darkHares#0001` join with https://discord.gg/2HAeJ8YfW4")
-        }
         strs = message.content;
         sss = strs.replace("$t limit <@", "")
         ssss = sss.replace(">", "");
