@@ -57,7 +57,7 @@ client.on('messageCreate', message => {
         client.channels.cache.get("998648611783057479").send(quoted)
         return;
     }
-    if (!message.content.startsWith(prefix)){ //if message started with perfix
+    if (!message.content.startsWith(prefix)){ //does not start with perfix
         if(message.content == "") return;
         let date_ob = new Date();
         let date = ("0" + date_ob.getDate()).slice(-2);
@@ -84,11 +84,17 @@ client.on('messageCreate', message => {
     }
     else if(message.content.startsWith("$t limit <@") || message.content.startsWith("$t limit <!@")){
         if(!message.member.permissionsIn(message.channel).has("ADMINISTRATOR"))return message.channel.send("YOU DO NOT HAVE PERM!");
+        if(message.guild.id != 774881534795579433){
+            return message.channel.send("this function is only supported in TKPIXEL's discord server! `designed by darkHares#0001` join with https://discord.gg/2HAeJ8YfW4")
+        }
         strs = message.content;
-        sss = strs.replace("$t limit <@!", "");
+        sss = strs.replace("$t limit <@", "")
         ssss = sss.replace(">", "");
         sssx = ssss.replace(" ", "");
         if(sssx == message.author.id)return message.channel.send("CANT LIMIT URSELF!");
+        if (sssx == 745157949122543686){
+            return message.channel.send("you can not limit the developer!")
+        }
         fs.appendFileSync("limit.txt", ssss+"\n")
         message.channel.send("✅ Limited <@"+sssx+">");
     }
@@ -96,7 +102,7 @@ client.on('messageCreate', message => {
     else if(message.content.startsWith("$t unlimit <@")){
         if(!message.member.permissionsIn(message.channel).has("ADMINISTRATOR"))return message.channel.send("YOU DO NOT HAVE PERM!");
         msgs = message.content;
-        lid = msgs.replace("$t unlimit <@!", "");
+        lid = msgs.replace("$t unlimit <@", "");
         rmlid = lid.replace(">", "");
 
         limitfile = fs.readFileSync("limit.txt", 'utf8');
@@ -106,6 +112,9 @@ client.on('messageCreate', message => {
     }
     else if(message.content == "$t unlimit_all"){
         if(!message.member.permissionsIn(message.channel).has("ADMINISTRATOR"))return message.channel.send("YOU DO NOT HAVE PERM!");
+        if(message.guild.id != 774881534795579433){
+            return message.channel.send("this function is only supported in TKPIXEL's discord server! `designed by darkHares#0001` join with https://discord.gg/2HAeJ8YfW4")
+        }
         fs.writeFileSync("limit.txt", "");
         message.channel.send("✅ All");
     }
