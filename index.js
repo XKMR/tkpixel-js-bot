@@ -91,6 +91,9 @@ client.on('messageCreate', message => {
     }
     else if(message.content.startsWith("$t limit <@") || message.content.startsWith("$t limit <!@")){ //limit command
         if(!message.member.permissionsIn(message.channel).has("ADMINISTRATOR"))return message.channel.send("YOU DO NOT HAVE PERM!");
+        if(message.guild.id != 774881534795579433 && config.multiserver){
+            return message.channel.send("this function is only supported in the main discord server!\n `designed by darkHares#0001` join with "+config.mainserverinvitelink)
+        }
         strs = message.content;
         sss = strs.replace("$t limit <@", "")
         ssss = sss.replace(">", "");
@@ -105,6 +108,9 @@ client.on('messageCreate', message => {
     else if(message.content == "$t unlimit")return message.channel.send("wrong syntax. correct usage: $t unlimit <user>");
     else if(message.content.startsWith("$t unlimit <@")){ //unlimit command
         if(!message.member.permissionsIn(message.channel).has("ADMINISTRATOR"))return message.channel.send("YOU DO NOT HAVE PERM!");
+        if(message.guild.id != 774881534795579433 && config.multiserver){
+            return message.channel.send("this function is only supported in the main discord server!\n `designed by darkHares#0001` join with "+config.mainserverinvitelink)
+        }
         msgs = message.content;
         lid = msgs.replace("$t unlimit <@", "");
         rmlid = lid.replace(">", "");
@@ -116,8 +122,8 @@ client.on('messageCreate', message => {
     }
     else if(message.content == "$t unlimit_all"){ //unlimit all command
         if(!message.member.permissionsIn(message.channel).has("ADMINISTRATOR"))return message.channel.send("YOU DO NOT HAVE PERM!");
-        if(message.guild.id != 774881534795579433){
-            return message.channel.send("this function is only supported in TKPIXEL's discord server! `designed by darkHares#0001` join with https://discord.gg/2HAeJ8YfW4")
+        if(message.guild.id != 774881534795579433 && config.multiserver){
+            return message.channel.send("this function is only supported in the main discord server!\n `designed by darkHares#0001` join with "+config.mainserverinvitelink)
         }
         fs.writeFileSync("limit.txt", "");
         message.channel.send("✅ All");
